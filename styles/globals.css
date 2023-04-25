@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .info_text {
+    @apply p-4 bg-gray-700/50 rounded-lg max-w-[300px] 
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .sidebar {
+    @apply hidden md:block bg-[#202123] overflow-y-auto h-screen w-[18rem] scrollbar-hide
+  }
+
+  .sidebar_mobile {
+    @apply flex md:hidden p-2 bg-[#202123] w-screen px-2 z-10 justify-between items-center sticky top-0 space-x-2
+  }
+
+  .message_row {
+    @apply py-5 text-white even:bg-[#434654] even:border-y border-gray-800/50
+  }
+
+  .user_row {
+    @apply flex p-2 rounded-md hover:opacity-50 hover:bg-gray-700/50 items-center cursor-pointer text-white space-x-2
+  }
+
+  .chat_row {
+    @apply rounded-lg px-5 py-3 min-w-[88px] truncate text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-gray-300 transition-all duration-200 ease-out
+  }
+
+  .chat_container {
+    @apply p-2 md:pb-16 md:pt-4 md:px-[20%]
+  }
+
+  .chat_box {
+    @apply bg-gray-700/50  text-gray-400 rounded-lg text-sm border border-[#1e1e1e]/50 shadow-lg
+  }
+
+  .chat_input {
+    @apply bg-transparent px-2 flex-1 text-base outline-none disabled:cursor-not-allowed disabled:text-gray-300
+  }
+
+  .send_button {
+    @apply bg-[#11A37F] text-white font-bold px-4 py-2 rounded enabled:hover:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500
+  }
 }
